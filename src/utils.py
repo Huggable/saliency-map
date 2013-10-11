@@ -25,7 +25,7 @@ class OpencvIo:
         except IOError:
             raise
         except:
-            print 'Arugment Error : Something wrong'
+            print('Arugment Error : Something wrong')
             sys.exit()
         return src
 
@@ -47,7 +47,7 @@ class Util:
     def normalize_range(self, src, begin=0, end=255):
         dst = np.zeros((len(src), len(src[0])))
         amin, amax = np.amin(src), np.amax(src)
-        for y, x in itertools.product(xrange(len(src)), xrange(len(src[0]))):
+        for y, x in itertools.product(range(len(src)), range(len(src[0]))):
             if amin != amax:
                 dst[y][x] = (src[y][x] - amin) * (end - begin) / (amax - amin) + begin
             else:
@@ -59,8 +59,8 @@ class Util:
         amax = np.amax(src)
         maxs = []
 
-        for y in xrange(1, len(src) - 1):
-            for x in xrange(1, len(src[0]) - 1):
+        for y in range(1, len(src) - 1):
+            for x in range(1, len(src[0]) - 1):
                 val = src[y][x]
                 if val == amax:
                     continue
